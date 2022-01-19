@@ -5,7 +5,7 @@ import PaginationButton from "./PaginationButton";
 const Pagination: React.FC = ({}) => {
   return (
     <Stack
-      direction={"row"}
+      direction={["column", "row"]}
       spacing={"6"}
       mt={8}
       justify={"space-between"}
