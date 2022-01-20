@@ -6,7 +6,7 @@ import Profile from "./Profile";
 import NotificationNav from "./NotificationsNav";
 import SearchBox from "./SearchBox";
 import Logo from "./Logo";
-import { useSidebar } from "../../Context/SidebarContext";
+import { useSidebar } from "../../context/SidebarContext";
 import { RiMenuLine } from "react-icons/ri";
 
 const Header: React.FC = ({}) => {

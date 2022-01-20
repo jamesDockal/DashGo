@@ -10,7 +10,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import SideBarNav from "./SiderBarNav";
-import { useSidebar } from "../../Context/SidebarContext";
+import { useSidebar } from "../../context/SidebarContext";
 
 const Sidebar: React.FC = ({}) => {
   const { isOpen, onClose } = useSidebar();

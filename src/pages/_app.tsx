@@ -1,6 +1,6 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { AppProps } from "next/app";
-import SidebarProvider from "../Context/SidebarContext";
+import SidebarProvider from "../context/SidebarContext";
 import { theme } from "../styles/theme";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -14,3 +14,4 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 export default MyApp;
+2;
