@@ -15,7 +15,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 import Header from "../../components/Header";
 import Pagination from "../../components/Pagination";
@@ -26,6 +26,16 @@ const UserList: React.FC = ({}) => {
     base: false,
     lg: true,
   });
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/users")
+      .then((response) => {
+        console.log("response.json()", response.json());
+      })
+      .catch((e) => {
+        console.log("e", e);
+      });
+  }, []);
 
   return (
     <Flex direction={"column"} h="100vh">
