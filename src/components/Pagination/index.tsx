@@ -1,24 +1,99 @@
-import { Box, Button, Stack } from "@chakra-ui/react";
-import React from "react";
+import { Stack, Box, Text } from "@chakra-ui/react";
 import PaginationButton from "./PaginationButton";
 
-const Pagination: React.FC = ({}) => {
+interface Props {
+  totalCountOfRegisters: number;
+  registersPerPage?: number;
+  currentPage?: number;
+  onPageChange: (page: number) => void;
+}
+
+const siblingsCount = 1;
+
+function generatePagesArray(from: number, to: number) {
+  return [...new Array(to - from)]
+    .map((_, i) => i + from + 1)
+    .filter((page) => page > 0);
+}
+
+const Pagination: React.FC<Props> = ({
+  totalCountOfRegisters,
+  currentPage = 1,
+  registersPerPage = 10,
+  onPageChange,
+}) => {
+  const lastPage = Math.ceil(totalCountOfRegisters / registersPerPage);
+
+  const previousPages =
+    currentPage > 1
+      ? generatePagesArray(currentPage - 1 - siblingsCount, currentPage - 1)
+      : [];
+
+  const nextPages =
+    currentPage < lastPage
+      ? generatePagesArray(
+          currentPage,
+          Math.min(currentPage + siblingsCount, lastPage)
+        )
+      : [];
+
   return (
     <Stack
       direction={["column", "row"]}
-      spacing={"6"}
-      mt={8}
-      justify={"space-between"}
+      mt="8"
+      justify="space-between"
       align="center"
+      spacing="6"
     >
       <Box>
-        <strong>0</strong> - <strong>10</strong> de <strong>100</strong>
+        <strong>{currentPage * 10 - 9}</strong> -{" "}
+        <strong>
+          {currentPage * 10 > totalCountOfRegisters
+            ? totalCountOfRegisters
+            : currentPage * 10}
+        </strong>{" "}
+        de <strong>{totalCountOfRegisters}</strong>
       </Box>
-      <Stack direction={"row"} spacing={"2"}>
-        <PaginationButton isCurrent>1</PaginationButton>
-        <PaginationButton>2</PaginationButton>
-        <PaginationButton>3</PaginationButton>
-        <PaginationButton>4</PaginationButton>
+      <Stack direction="row" spacing="2">
+        {currentPage > 1 + siblingsCount && (
+          <>
+            <PaginationButton number={1} onPageChange={onPageChange} />
+            {currentPage > 2 + siblingsCount && (
+              <Text color="gray.300" width="8" textAlign="center">
+                ...
+              </Text>
+            )}
+          </>
+        )}
+
+        {previousPages.map((page) => (
+          <PaginationButton
+            key={page}
+            number={page}
+            onPageChange={onPageChange}
+          />
+        ))}
+
+        <PaginationButton
+          number={currentPage}
+          isCurrent
+          onPageChange={onPageChange}
+        />
+
+        {nextPages.map((page) => (
+          <PaginationButton
+            key={page}
+            number={page}
+            onPageChange={onPageChange}
+          />
+        ))}
+
+        {currentPage + siblingsCount < lastPage && (
+          <>
+            {currentPage + 1 + siblingsCount < lastPage && <Text>...</Text>}
+            <PaginationButton number={lastPage} onPageChange={onPageChange} />
+          </>
+        )}
       </Stack>
     </Stack>
   );

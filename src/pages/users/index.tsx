@@ -38,7 +38,7 @@ const UserList: React.FC = ({}) => {
     "users",
     async () => {
       const { data } = await api.get("/users");
-
+      // http://localhost:3333/users?_page=1&_limit=2
       const users = data.map(({ id, email, name, createdAt }: User) => {
         return {
           id,
@@ -142,7 +142,12 @@ const UserList: React.FC = ({}) => {
                   ))}
                 </Tbody>
               </Table>
-              <Pagination />
+              <Pagination
+                totalCountOfRegisters={200}
+                currentPage={5}
+                // registersPerPage={10}
+                onPageChange={() => {}}
+              />
             </>
           )}
         </Box>

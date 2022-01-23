@@ -3,9 +3,15 @@ import React from "react";
 
 type Props = {
   isCurrent?: boolean;
+  number: number;
+  onPageChange?: any;
 };
 
-const PaginationButton: React.FC<Props> = ({ isCurrent = false, children }) => {
+const PaginationButton: React.FC<Props> = ({
+  isCurrent = false,
+  number,
+  children,
+}) => {
   return isCurrent ? (
     <Button
       size={"sm"}
@@ -18,7 +24,7 @@ const PaginationButton: React.FC<Props> = ({ isCurrent = false, children }) => {
         cursor: "default",
       }}
     >
-      {children}
+      {number}
     </Button>
   ) : (
     <Button
@@ -30,7 +36,7 @@ const PaginationButton: React.FC<Props> = ({ isCurrent = false, children }) => {
         bg: "gray.500",
       }}
     >
-      {children}
+      {number}
     </Button>
   );
 };
