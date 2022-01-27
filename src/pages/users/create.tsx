@@ -17,6 +17,8 @@ import Link from "next/link";
 import { useMutation } from "react-query";
 import { api } from "../../services/api";
 import { useForm } from "react-hook-form";
+import { queryClient } from "../../services/queryClient";
+import { useRouter } from "next/router";
 
 type User = {
   id: string;
@@ -26,21 +28,32 @@ type User = {
 };
 
 const CreateUser: React.FC = ({}) => {
-  const createUser = useMutation(async (user: User) => {
-    const response = await api.post("users", {
-      user: {
-        ...user,
-        createdAt: new Date(),
-      },
-    });
+  const router = useRouter();
 
-    return response.data.user;
-  });
+  const createUser = useMutation(
+    async (user: User) => {
+      const response = await api.post("users", {
+        user: {
+          ...user,
+          createdAt: new Date(),
+        },
+      });
+
+      return response.data.user;
+    },
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries("users");
+      },
+    }
+  );
 
   const { handleSubmit, register, formState } = useForm();
 
   const handleCreateUser = async (values: any) => {
     await createUser.mutateAsync(values);
+
+    router.push("/users");
   };
 
   return (
