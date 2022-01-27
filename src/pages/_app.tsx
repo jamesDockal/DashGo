@@ -1,10 +1,9 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { AppProps } from "next/app";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClientProvider } from "react-query";
 import SidebarProvider from "../context/SidebarContext";
+import { queryClient } from "../services/queryClient";
 import { theme } from "../styles/theme";
-
-const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

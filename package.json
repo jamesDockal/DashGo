@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "server": "json-server src/server.json --host localhost --port 3333 --delay 1000",
+    "server": "json-server src/server.json --host localhost --port 3333 --delay 1000 --id id",
     "commit": "cz"
   },
   "dependencies": {

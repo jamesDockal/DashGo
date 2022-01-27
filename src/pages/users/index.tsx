@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { useQuery } from "react-query";
 
@@ -12,6 +12,7 @@ import {
   Flex,
   Heading,
   Icon,
+  Link,
   Spinner,
   Table,
   Tbody,
@@ -22,9 +23,10 @@ import {
   Tr,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import Link from "next/link";
+import NextLink from "next/link";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 import { api } from "../../services/api";
+import { queryClient } from "../../services/queryClient";
 
 type User = {
   id: string;
@@ -34,11 +36,18 @@ type User = {
 };
 
 const UserList: React.FC = ({}) => {
+  const [page, setPage] = useState(1);
+
   const { isLoading, error, data } = useQuery(
-    "users",
+    ["users", page],
     async () => {
-      const { data } = await api.get("/users");
-      // http://localhost:3333/users?_page=1&_limit=2
+      const { data } = await api.get("/users", {
+        params: {
+          _page: page,
+          _limit: 10,
+        },
+      });
+
       const users = data.map(({ id, email, name, createdAt }: User) => {
         return {
           id,
@@ -64,6 +73,19 @@ const UserList: React.FC = ({}) => {
     lg: true,
   });
 
+  async function handlePreFetchUserver(id: string) {
+    await queryClient.prefetchQuery(
+      ["user", id],
+      async () => {
+        const response = await api.get(`/users/${id}`);
+        return response.data;
+      },
+      {
+        staleTime: 1000 * 60 * 10,
+      }
+    );
+  }
+
   return (
     <Flex direction={"column"} h="100vh">
       <Header />
@@ -77,7 +99,7 @@ const UserList: React.FC = ({}) => {
               Usuários
             </Heading>
 
-            <Link href="/users/create" passHref>
+            <NextLink href="/users/create" passHref>
               <Button
                 as="a"
                 size={"sm"}
@@ -87,7 +109,7 @@ const UserList: React.FC = ({}) => {
               >
                 Criar novo
               </Button>
-            </Link>
+            </NextLink>
           </Flex>
 
           {isLoading ? (
@@ -113,14 +135,19 @@ const UserList: React.FC = ({}) => {
                 </Thead>
 
                 <Tbody>
-                  {data.map(({ name, email, createdAt }: User) => (
-                    <Tr key={email}>
+                  {data.map(({ id, name, email, createdAt }: User) => (
+                    <Tr key={id}>
                       <Td px={["4", "4", "6"]}>
                         <Checkbox colorScheme={"pink"} />
                       </Td>
                       <Td>
                         <Box>
-                          <Text fontWeight="bold">{name}</Text>
+                          <Link
+                            color="purple.400"
+                            onMouseEnter={() => handlePreFetchUserver(id)}
+                          >
+                            <Text fontWeight="bold">{name}</Text>
+                          </Link>
                           <Text fontSize="sm" color="gray.300">
                             {email}
                           </Text>
@@ -144,9 +171,8 @@ const UserList: React.FC = ({}) => {
               </Table>
               <Pagination
                 totalCountOfRegisters={200}
-                currentPage={5}
-                // registersPerPage={10}
-                onPageChange={() => {}}
+                currentPage={page}
+                onPageChange={setPage}
               />
             </>
           )}
