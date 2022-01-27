@@ -32,14 +32,13 @@ const CreateUser: React.FC = ({}) => {
 
   const createUser = useMutation(
     async (user: User) => {
-      const response = await api.post("users", {
-        user: {
-          ...user,
-          createdAt: new Date(),
-        },
-      });
+      const data = {
+        ...user,
+        createdAt: new Date(),
+      };
+      const response = await api.post("/users", data);
 
-      return response.data.user;
+      return response.data;
     },
     {
       onSuccess: () => {

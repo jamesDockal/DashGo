@@ -1,150 +1,20 @@
 {
   "users": [
     {
-      "id": "d2eeae84-90a8-49c4-a635-85b3374b50ec",
-      "name": "Hortência Vega",
-      "email": "emanuel.aguiar@gmail.com",
-      "createdAt": "2020-02-02T12:56:30.937Z"
+      "name": "james",
+      "email": "jamesdockal@gmail.com",
+      "password": "1232",
+      "confirmation_password": "1232",
+      "createdAt": "2022-01-27T21:48:27.054Z",
+      "id": 1
     },
     {
-      "id": "1b262552-e34c-4ccf-a72f-384e733c6bb8",
-      "name": "Everton Cordeiro Aaron",
-      "email": "incio.marques74@yahoo.com",
-      "createdAt": "2019-12-27T22:44:25.765Z"
-    },
-    {
-      "id": "d72f981d-e14a-45d5-8175-10283bdadae0",
-      "name": "Ziraldo Barreto",
-      "email": "andres.soares97@hotmail.com",
-      "createdAt": "2014-08-21T18:46:13.927Z"
-    },
-    {
-      "id": "0256e9c9-f790-4c52-9e90-5bb467614b55",
-      "name": "Christopher Rodrigues",
-      "email": "demian.mendes@hotmail.com",
-      "createdAt": "2013-09-23T01:32:35.519Z"
-    },
-    {
-      "id": "184d106d-a7f5-49eb-8670-f7a54bf1eeeb",
-      "name": "Daniela Rivera",
-      "email": "violeta.martines59@gmail.com",
-      "createdAt": "2019-02-02T16:11:26.363Z"
-    },
-    {
-      "id": "d42e1a24-fa7d-4832-b64e-bb2dcd4fb4f9",
-      "name": "Eduardo Sales",
-      "email": "horcio.beltro29@hotmail.com",
-      "createdAt": "2016-11-27T00:30:10.272Z"
-    },
-    {
-      "id": "1427555e-35af-443d-8417-73c1d7028597",
-      "name": "Vicente Bezerra",
-      "email": "mait.barreto@gmail.com",
-      "createdAt": "2021-07-27T11:38:06.382Z"
-    },
-    {
-      "id": "afc75081-8e67-45d1-802f-c690f8c541bd",
-      "name": "Rodrigo Valência",
-      "email": "tbatacervantes14@gmail.com",
-      "createdAt": "2015-06-08T00:59:21.792Z"
-    },
-    {
-      "id": "846bd0ef-fb73-4aaf-b09d-d7b8b2b387ce",
-      "name": "Josefina Brito",
-      "email": "jorge.bittencourt70@hotmail.com",
-      "createdAt": "2013-07-02T19:45:41.420Z"
-    },
-    {
-      "id": "dec65c19-7f22-4ee8-bdfb-cf2f4654bbe4",
-      "name": "Maitê Marin",
-      "email": "fernando.godi@hotmail.com",
-      "createdAt": "2018-08-11T21:08:17.267Z"
-    },
-    {
-      "id": "31378153-8672-45f4-8e5d-b72003190a55",
-      "name": "Samanta Ferraz",
-      "email": "mximo.rivera12@hotmail.com",
-      "createdAt": "2016-05-17T10:58:47.561Z"
-    },
-    {
-      "id": "c0dbc995-ed01-4a36-9cbb-cd4d8255a9ba",
-      "name": "Simon Domingues",
-      "email": "simonda-rosa85@yahoo.com",
-      "createdAt": "2021-02-17T17:36:22.467Z"
-    },
-    {
-      "id": "a46d2625-532a-46b6-9ef2-68bc8c692dcc",
-      "name": "Cristóvão Sanches Estêvão",
-      "email": "ian.de-souza@yahoo.com",
-      "createdAt": "2015-12-06T00:10:58.371Z"
-    },
-    {
-      "id": "8cf66636-0557-4b78-aa74-cb5bb37dc5fa",
-      "name": "Francisco Beltrão",
-      "email": "kevinjimenes40@gmail.com",
-      "createdAt": "2021-02-05T06:45:37.258Z"
-    },
-    {
-      "id": "4103a601-8c86-4dbd-831f-543d11b69988",
-      "name": "Fabiana Rangel",
-      "email": "thiagomedina74@gmail.com",
-      "createdAt": "2019-03-06T03:51:20.700Z"
-    },
-    {
-      "id": "cb50d406-b782-4c49-8723-c38cc379ea24",
-      "name": "Elias Fontes Elias",
-      "email": "melissaferraz89@gmail.com",
-      "createdAt": "2017-09-27T21:19:23.049Z"
-    },
-    {
-      "id": "23bbe539-536e-4434-96ba-28062b5510a7",
-      "name": "Teobaldo Campos",
-      "email": "emanuelburgos62@gmail.com",
-      "createdAt": "2012-12-30T18:50:59.268Z"
-    },
-    {
-      "id": "d366d3c8-5563-40c5-b7e2-6756a127b043",
-      "name": "Irene Verdugo",
-      "email": "vitria.galindo@hotmail.com",
-      "createdAt": "2013-04-28T12:16:08.589Z"
-    },
-    {
-      "id": "66bed526-ec9d-4793-a8d0-99a19e558afd",
-      "name": "Júlia Oliveira",
-      "email": "josu.fidalgo40@yahoo.com",
-      "createdAt": "2018-07-01T14:31:03.599Z"
-    },
-    {
-      "id": "6369dbed-89a1-40d4-ba0d-4c8443a24971",
-      "name": "Ariana Zamana Noelí",
-      "email": "josumontenegro78@gmail.com",
-      "createdAt": "2014-09-29T09:20:52.128Z"
-    },
-    {
-      "id": "f737e30e-b150-4e27-9747-2282981f6c69",
-      "name": "Mel da Silva",
-      "email": "anderson.paz@gmail.com",
-      "createdAt": "2013-10-27T07:41:07.698Z"
-    },
-    {
-      "user": {
-        "name": "james david dockal",
-        "email": "jamesdockal@gmail.com",
-        "password": "123",
-        "confirmation_password": "132",
-        "createdAt": "2022-01-27T21:33:06.151Z"
-      },
-      "id": "OPCWEQz"
-    },
-    {
-      "user": {
-        "name": "AAAAA",
-        "email": "jamesdockal@gmail.com",
-        "password": "123",
-        "confirmation_password": "123",
-        "createdAt": "2022-01-27T21:37:12.885Z"
-      },
-      "id": "zNHwVbE"
+      "name": "asdasdasdasdasdsda",
+      "email": "teste@gmail.com",
+      "password": "123",
+      "confirmation_password": "123",
+      "createdAt": "2022-01-27T21:48:39.351Z",
+      "id": 2
     }
   ]
 }

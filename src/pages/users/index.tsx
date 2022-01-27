@@ -45,6 +45,8 @@ const UserList: React.FC = ({}) => {
         params: {
           _page: page,
           _limit: 10,
+          _sort: "createdAt",
+          _order: "desc",
         },
       });
 
